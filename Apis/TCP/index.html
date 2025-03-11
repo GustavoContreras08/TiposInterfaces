@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Chat WebSocket (Python)</title>
+    </head>
+    <body>
+        <input type="text" id="mensaje">
+        <button id="enviar">Enviar</button>
+        <ul id="mensajes"></ul>
+        <script>
+            const socket = new WebSocket('ws://localhost:8765');
+            const mensajeInput = document.getElementById('mensaje');
+            const mensajesLista = document.getElementById('mensajes');
+            document.getElementById('enviar').addEventListener('click', () => {
+                socket.send(mensajeInput.value);
+                mensajeInput.value = '';
+            });
+            socket.onmessage = event => {
+                const mensaje = document.createElement('li');
+                mensaje.textContent = event.data;
+                mensajesLista.appendChild(mensaje);
+            };
+        </script>
+    </body>
+    </html>

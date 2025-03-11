@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Cliente REST</title>
+    </head>
+    <body>
+        <button id="obtenerProductos">Obtener Productos</button>
+        <div id="resultados"></div>
+        <script>
+            document.getElementById('obtenerProductos').addEventListener('click', () => {
+                fetch('/productos')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('resultados').innerHTML = JSON.stringify(data);
+                    });
+            });
+        </script>
+    </body>
+    </html>

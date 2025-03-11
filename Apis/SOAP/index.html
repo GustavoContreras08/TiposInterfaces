@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Cliente SOAP</title>
+    </head>
+    <body>
+        <h1>Cliente SOAP</h1>
+        <form action="servicio_usuarios.php" method="post">
+            <label for="idUsuario">ID de Usuario:</label><br>
+            <input type="number" id="idUsuario" name="idUsuario" value="123"><br><br>
+            <input type="submit" value="Obtener Usuario">
+        </form>
+        <?php if (isset($_GET['respuesta'])) : ?>
+            <h2>Respuesta SOAP:</h2>
+            <textarea rows="10" cols="50"><?php echo $_GET['respuesta']; ?></textarea>
+        <?php endif; ?>
+    </body>
+    </html>
